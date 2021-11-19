@@ -7,7 +7,7 @@ export const FormPostPage = () => {
       <NavBar />
       <div className='container-center'>
         <form className='form-signin'>
-          <h1 className='h1 mb-3 font-weight-normal'>Edit a post✍</h1>
+          <h1 className='h1 mb-3 font-weight-normal'>Create a post✍</h1>
           <label htmlFor='inputEmail' className='mb-1 text-muted'>
             Title
           </label>

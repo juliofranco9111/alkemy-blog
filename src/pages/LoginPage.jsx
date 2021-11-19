@@ -4,8 +4,8 @@ export const LoginPage = () => {
   return (
     <div className="container-center">
       <form className='form-signin'>
-        <h1 className='h3 mb-3 font-weight-normal'>AlkemyBlog💻</h1>
-        <label htmlFor='inputEmail' className='sr-only text-muted'>
+        <h1 className='h1 mb-3 font-weight-normal'>AlkemyBlog💻</h1>
+        <label htmlFor='inputEmail' className='sr-only text-muted mb-2'>
           Email
         </label>
         <input
@@ -17,7 +17,7 @@ export const LoginPage = () => {
           required
           autofocus
         />
-        <label htmlFor='inputPassword' className='sr-only text-muted'>
+        <label htmlFor='inputPassword' className='sr-only text-muted mb-2'>
           Password
         </label>
         <input
@@ -31,7 +31,7 @@ export const LoginPage = () => {
         <button className='btn btn-primary btn-block' type='submit'>
           Sign in
         </button>
-        <p className='mt-5 mb-3 text-muted'>Julio Franco</p>
+        <p className='mt-5 mb-3 text-muted'> - Julio Franco - </p>
       </form>
     </div>
   );

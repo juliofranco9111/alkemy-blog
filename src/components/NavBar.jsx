@@ -2,9 +2,9 @@ import React from 'react'
 
 export const NavBar = () => {
     return (
-        <nav className='navbar navbar-expand-lg' id='mainNav'>
+        <nav className='navbar navbar-expand-lg nabvar-dark bg-dark' id='mainNav'>
         <div className='container px-4 px-lg-5'>
-          <a className='navbar-brand' href='index.html'>
+          <a className='navbar-brand text-white' href='index.html'>
             AlkemyBlog
           </a>
           <button
@@ -21,13 +21,13 @@ export const NavBar = () => {
           <div className='collapse navbar-collapse' id='navbarResponsive'>
             <ul className='navbar-nav ms-auto py-4 py-lg-0'>
               <li className='nav-item'>
-                <a className='nav-link px-lg-3 py-3 py-lg-4' href='index.html'>
+                <a className='nav-link px-lg-3 py-3 py-lg-4 text-white' href='index.html'>
                   Home
                 </a>
               </li>
               
               <li className='nav-item'>
-                <a className='nav-link px-lg-3 py-3 py-lg-4' href='contact.html'>
+                <a className='nav-link px-lg-3 py-3 py-lg-4 text-white' href='contact.html'>
                   New Post
                 </a>
               </li>

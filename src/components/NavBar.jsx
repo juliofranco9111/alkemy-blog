@@ -28,12 +28,12 @@ export const NavBar = () => {
               </li>
               
               <li className='nav-item'>
-                <Link to="post/create" className='nav-link px-lg-3 py-3 py-lg-4 text-white'>
+                <Link to="/post/create" className='nav-link px-lg-3 py-3 py-lg-4 text-white'>
                   New Post
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link to="login" className='nav-link px-lg-3 py-3 py-lg-4 text-white'>
+                <Link to="/login" className='nav-link px-lg-3 py-3 py-lg-4 text-white'>
                   Logout
                 </Link>
               </li>

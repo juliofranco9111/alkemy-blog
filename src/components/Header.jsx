@@ -9,7 +9,7 @@ export const Header = () => {
             <div className='col-md-10 col-lg-8 col-xl-7'>
               <div className='site-heading'>
                 <h1>Alkemy Blog</h1>
-                <span className='subheading'>A warmup challenge for React Acceleration</span>
+                <span className='subheading'>A WarmUp challenge for React Acceleration</span>
               </div>
             </div>
           </div>

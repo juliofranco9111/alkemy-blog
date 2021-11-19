@@ -5,7 +5,7 @@ export const NavBar = () => {
         <nav className='navbar navbar-expand-lg' id='mainNav'>
         <div className='container px-4 px-lg-5'>
           <a className='navbar-brand' href='index.html'>
-            Start Bootstrap
+            AlkemyBlog
           </a>
           <button
             className='navbar-toggler'

@@ -5,25 +5,26 @@ export const LoginPage = () => {
     <div className="container-center">
       <form className='form-signin'>
         <h1 className='h3 mb-3 font-weight-normal'>AlkemyBlog💻</h1>
-        <label htmlFor='inputEmail' className='sr-only'>
-          Email address
+        <label htmlFor='inputEmail' className='sr-only text-muted'>
+          Email
         </label>
         <input
           type='email'
           id='inputEmail'
           className='form-control'
-          placeholder='Email address'
+          placeholder='example@example.com'
+          autocomplete='off'
           required
           autofocus
         />
-        <label htmlFor='inputPassword' className='sr-only'>
+        <label htmlFor='inputPassword' className='sr-only text-muted'>
           Password
         </label>
         <input
           type='password'
           id='inputPassword'
           className='form-control'
-          placeholder='Password'
+          placeholder='Your password'
           required
         />
         

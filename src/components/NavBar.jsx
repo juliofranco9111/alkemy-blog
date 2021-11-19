@@ -9,7 +9,7 @@ export const NavBar = () => {
             AlkemyBlog
           </Link>
           <button
-            className='navbar-toggler'
+            className='navbar-toggler text-white'
             type='button'
             data-bs-toggle='collapse'
             data-bs-target='#navbarResponsive'
@@ -30,6 +30,11 @@ export const NavBar = () => {
               <li className='nav-item'>
                 <Link to="post/create" className='nav-link px-lg-3 py-3 py-lg-4 text-white'>
                   New Post
+                </Link>
+              </li>
+              <li className='nav-item'>
+                <Link to="login" className='nav-link px-lg-3 py-3 py-lg-4 text-white'>
+                  Logout
                 </Link>
               </li>
             </ul>

@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export const BlogPost = ({content}) => {
+export const BlogPost = ({ content }) => {
   const users = [
     {
       id: 1,
@@ -44,18 +45,13 @@ export const BlogPost = ({content}) => {
     },
   ];
 
-  const {title, userId} = content;
+  const { title, userId, id } = content;
   return (
     <>
       <div className='post-preview'>
-        <a href='post.html'>
-          <h2 className='post-title'>
-            {title}
-          </h2>
-          {/* <h3 className='post-subtitle'>
-            Problems look mighty small from 150 miles up
-          </h3> */}
-        </a>
+        <Link to={`post/${id}`}>
+          <h2 className='post-title'>{title}</h2>
+        </Link>
         <p className='post-meta'>
           Posted by
           <a href='#!'> {users[userId - 1].name} </a>

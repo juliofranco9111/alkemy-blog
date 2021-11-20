@@ -13,7 +13,7 @@ export const LoginPage = () => {
           id='inputEmail'
           className='form-control'
           placeholder='example@example.com'
-          autocomplete='off'
+          autoComplete='off'
           required
           autofocus
         />

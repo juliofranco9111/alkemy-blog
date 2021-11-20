@@ -15,7 +15,7 @@ export const FormPostPage = () => {
           id='inputEmail'
           className='form-control'
           placeholder='A great title...'
-          autocomplete='off'
+          autoComplete='off'
         />
         <label htmlFor='inputPassword' className='sr-only text-muted mt-3 mb-1'>
           Body

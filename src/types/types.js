@@ -5,4 +5,6 @@ export const types = {
   authStartLoading: '[auth] Start loading',
   authStopLoading: '[auth] Stop loading',
   authStartChecking: '[auth] Start checking',
+  authSetError: '[auth] Set error',
+  authClearError: '[auth] Clear error',
 };

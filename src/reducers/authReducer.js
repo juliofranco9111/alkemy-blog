@@ -3,6 +3,7 @@ import { types } from '../types/types';
 const initialState = {
   userAuth: false,
   checking: false,
+  error: false,
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ export const authReducer = (state = initialState, action) => {
         userAuth: false,
         checking: false,
       };
+
+    case types.authSetError:
+      return { ...state, error: true };
+    case types.authClearError:
+      return { ...state, error: false };
 
     default:
       return state;

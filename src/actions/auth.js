@@ -1,16 +1,15 @@
 import { types } from '../types/types';
-import { fetchAuth } from '../helpers/fetchAuth';
+import { fetchAuth } from '../helpers/fetch';
 
 export const startLogin = (user) => {
   return async (dispatch) => {
     dispatch(startLoading());
     const resp = await fetchAuth(user);
-    const body = await resp;
-    if (body.status === 200) {
-      const token = body['data'].token;
-
+    const {token} = await resp.json();
+    if (token) {
+      dispatch(clearError());
+      console.log('token');
       localStorage.setItem('token', token);
-      localStorage.setItem('email', user.email);
       dispatch(
         login({
           email: user.email,
@@ -19,6 +18,7 @@ export const startLogin = (user) => {
       );
       dispatch(stopLoading());
     } else {
+      dispatch(setError());
       dispatch(stopLoading());
     }
   };
@@ -27,8 +27,6 @@ export const startLogin = (user) => {
 export const startChecking = () => {
   const token = localStorage.getItem('token') || null;
   const email = localStorage.getItem('email') || null;
-
-  
 
   if (token && email) {
     return (dispatch) => {
@@ -67,3 +65,6 @@ const startLoading = () => ({
 const stopLoading = () => ({ type: types.authStopLoading });
 
 const logout = () => ({ type: types.authLogout });
+
+const setError = () => ({ type: types.authSetError });
+const clearError = () => ({ type: types.authClearError });

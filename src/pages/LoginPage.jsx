@@ -2,9 +2,9 @@ import React from 'react';
 
 export const LoginPage = () => {
   return (
-    <div className="container-center">
+    <div className="container-center-login">
       <form className='form-signin'>
-        <h1 className='h1 mb-3 font-weight-normal'>AlkemyBlog💻</h1>
+        <h1 className='h1 mb-3 font-weight-normal'>AlkemyBlog 💻</h1>
         <label htmlFor='inputEmail' className='sr-only text-muted mb-2'>
           Email
         </label>

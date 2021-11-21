@@ -9,6 +9,8 @@ export const HomePage = () => {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.posts);
 
+  const subtitle = 'A WarmUp challenge for React Acceleration'
+
   useEffect(() => {
     if (!posts) {
       dispatch(startLoadingPosts());
@@ -18,7 +20,7 @@ export const HomePage = () => {
   return (
     <>
       <NavBar />
-      <Header />
+      <Header subtitle={subtitle} />
       <PostContainer posts={posts}/>
     </>
   );

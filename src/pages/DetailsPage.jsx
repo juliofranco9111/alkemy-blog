@@ -1,105 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { NavBar } from '../components/NavBar';
+import { fetchPost } from '../helpers/fetch';
 
 export const DetailsPage = () => {
-  return (
-    <div>
+  const { id } = useParams();
+
+  const [post, setPost] = useState({ title: null, body: null, loading: true});
+
+  useEffect(() => {
+    const fetchPostData = async () => {
+      const res = await fetchPost(id);
+      const { title, body } = await res.json();
+
+      console.log(title,'+++++', body);
+
+      setPost({ title, body, loading: false });
+    };
+
+    fetchPostData();
+  }, []);
+
+  return (    
+    <>
       <NavBar />
-      <Header />
+      <Header title={post.title}/>
       <main className='mb-4'>
         <div className='container px-4 px-lg-5'>
           <div className='row gx-4 gx-lg-5 justify-content-center'>
             <div className='col-md-10 col-lg-8 col-xl-7'>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe
-                nostrum ullam eveniet pariatur voluptates odit, fuga atque ea
-                nobis sit soluta odio, adipisci quas excepturi maxime quae totam
-                ducimus consectetur?
+                {post.body}
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
-                praesentium recusandae illo eaque architecto error, repellendus
-                iusto reprehenderit, doloribus, minus sunt. Numquam at quae
-                voluptatum in officia voluptas voluptatibus, minus!
+                {post.body}
               </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
-             
+              
             </div>
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 };

@@ -20,3 +20,12 @@ export const fetchAllPosts = () => {
     },
   }).then(res => res)
 }
+
+export const fetchPost = (id) => {
+  return fetch(`${URLPost}/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(res => res)
+}

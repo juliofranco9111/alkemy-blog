@@ -1,5 +1,5 @@
 const URLAuth = 'http://challenge-react.alkemy.org/';
-const URLPost = 'https://www.superheroapi.com/api.php/10224541060347055/';
+const URLPost = 'https://jsonplaceholder.typicode.com/posts';
 
 
 export const fetchAuth = (user) => {
@@ -11,3 +11,12 @@ export const fetchAuth = (user) => {
     body: JSON.stringify(user)
   }).then(res => res)
 };
+
+export const fetchAllPosts = () => {
+  return fetch(URLPost, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(res => res)
+}

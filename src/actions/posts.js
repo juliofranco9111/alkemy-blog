@@ -6,15 +6,20 @@ export const startLoadingPosts = () => {
     dispatch(startLoading());
     const resp = await fetchAllPosts();
     const posts = await resp.json();
-    dispatch(finishLoading());
+    //dispatch(finishLoading());
     dispatch(setPosts(posts));
   };
 };
 
-export const startLoading = () => ({
+const startLoading = () => ({
   type: types.postsStartLoading,
 });
 
-export const finishLoading = () => ({
+const finishLoading = () => ({
     type: types.postsFinishLoading,
-})
+});
+
+const setPosts = (posts) => ({
+    type: types.postsSetAllPosts,
+    payload: posts,
+});

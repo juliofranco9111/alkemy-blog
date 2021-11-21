@@ -1,7 +1,7 @@
 import { types } from '../types/types';
 
 const initialState = {
-  posts: [],
+  posts: null,
   loading: false,
   error: false,
 };

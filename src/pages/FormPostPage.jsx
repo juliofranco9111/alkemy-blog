@@ -15,8 +15,10 @@ export const FormPostPage = () => {
   useEffect(() => {
     if (pathname.includes('edit')) {
       setType(types.edit);
+    }else{
+      setType(types.create);
     }
-  }, []);
+  }, [pathname]);
 
   return (
     <div className='mt-80'>

@@ -32,7 +32,7 @@ export const FormEditComponent = () => {
     e.preventDefault();
     e.stopPropagation();
 
-    const res = await editPost(post.id);
+    const res = await editPost(post.id, values);
     if (res.status === 200) {
       console.log('Exito');
     }

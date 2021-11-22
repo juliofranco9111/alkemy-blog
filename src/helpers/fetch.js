@@ -1,15 +1,14 @@
 const URLAuth = 'http://challenge-react.alkemy.org/';
 const URLPost = 'https://jsonplaceholder.typicode.com/posts';
 
-
 export const fetchAuth = (user) => {
   return fetch(URLAuth, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(user)
-  }).then(res => res)
+    body: JSON.stringify(user),
+  }).then((res) => res);
 };
 
 export const fetchAllPosts = () => {
@@ -18,8 +17,8 @@ export const fetchAllPosts = () => {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then(res => res)
-}
+  }).then((res) => res);
+};
 
 export const fetchPost = (id) => {
   return fetch(`${URLPost}/${id}`, {
@@ -27,18 +26,28 @@ export const fetchPost = (id) => {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then(res => res)
-}
+  }).then((res) => res);
+};
 
-export const editPost = (id) => {
+export const editPost = (id, data) => {
   return fetch(`${URLPost}/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
-    
-  }).then(res => res)
-}
+    body: JSON.stringify(data),
+  }).then((res) => res);
+};
+
+export const createPost = (data) => {
+  return fetch(URLPost, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then((res) => res);
+};
 
 export const deletePost = (id) => {
   return fetch(`${URLPost}/${id}`, {
@@ -46,5 +55,5 @@ export const deletePost = (id) => {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then(res => res)
-}
+  }).then((res) => res);
+};

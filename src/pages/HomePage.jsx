@@ -4,12 +4,13 @@ import { Header } from '../components/Header';
 import { PostContainer } from '../components/PostContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLoadingPosts } from '../actions/posts';
+import { Loading } from '../components/Loading';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
-  const { posts } = useSelector((state) => state.posts);
+  const { posts, loading } = useSelector((state) => state.posts);
 
-  const subtitle = 'A WarmUp challenge for React Acceleration'
+  const subtitle = 'A WarmUp challenge for React Acceleration';
 
   useEffect(() => {
     if (!posts) {
@@ -17,11 +18,16 @@ export const HomePage = () => {
       console.log('re fetch');
     }
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <NavBar />
       <Header subtitle={subtitle} />
-      <PostContainer posts={posts}/>
+      <PostContainer posts={posts} />
     </>
   );
 };

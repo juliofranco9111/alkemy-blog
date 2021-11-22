@@ -59,6 +59,7 @@ export const BlogPost = ({ content }) => {
         </p>
       </div>
       <hr className='my-4' />
+      
     </>
   );
 };

@@ -6,8 +6,8 @@ export const startLoadingPosts = () => {
     dispatch(startLoading());
     const resp = await fetchAllPosts();
     const posts = await resp.json();
-    //dispatch(finishLoading());
     dispatch(setPosts(posts));
+    dispatch(finishLoading());
   };
 };
 
@@ -16,7 +16,7 @@ const startLoading = () => ({
 });
 
 const finishLoading = () => ({
-    type: types.postsFinishLoading,
+    type: types.postsStopLoading,
 });
 
 const setPosts = (posts) => ({

@@ -13,7 +13,7 @@ export const postsReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
-    case types.postsFinishLoading:
+    case types.postsStopLoading:
       return {
         ...state,
         loading: false,

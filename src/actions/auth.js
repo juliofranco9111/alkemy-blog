@@ -8,11 +8,9 @@ export const startLogin = (user) => {
     const {token} = await resp.json();
     if (token) {
       dispatch(clearError());
-      console.log('token');
       localStorage.setItem('token', token);
       dispatch(
         login({
-          email: user.email,
           token,
         })
       );
@@ -26,14 +24,12 @@ export const startLogin = (user) => {
 
 export const startChecking = () => {
   const token = localStorage.getItem('token') || null;
-  const email = localStorage.getItem('email') || null;
 
-  if (token && email) {
+  if (token) {
     return (dispatch) => {
       dispatch(startLoading());
       dispatch(
         login({
-          email,
           token,
         })
       );
@@ -48,7 +44,6 @@ export const startChecking = () => {
 export const startLogout = () => {
   return (dispatch) => {
     localStorage.removeItem('token');
-    localStorage.removeItem('email');
     dispatch(logout());
   };
 };

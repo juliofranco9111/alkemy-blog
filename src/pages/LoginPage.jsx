@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { startLogin } from '../actions/auth';
+import { startChecking, startLogin } from '../actions/auth';
 import { validate } from '../helpers/validate';
 import { useForm } from '../hooks/useForm';
 
@@ -10,6 +10,12 @@ export const LoginPage = () => {
   const [errors, setErrors] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(startChecking());
+  }, [dispatch]);
+
+
 
   const [values, handleInputChange] = useForm({
     email: 'challenge@alkemy.org',

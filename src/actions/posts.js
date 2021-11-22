@@ -29,6 +29,3 @@ export const setPostToEdit = (id) => ({
   payload: id,
 });
 
-export const clearPostToEdit = () => ({
-  type: types.postsClearPostToEdit,
-});

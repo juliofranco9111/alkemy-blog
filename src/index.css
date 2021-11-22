@@ -5,6 +5,10 @@
     align-items: center;
  }
 
+ .pointer{
+   cursor: pointer;
+ }
+
 
  .container-center-login {
    text-align: center;

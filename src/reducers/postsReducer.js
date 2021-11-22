@@ -4,8 +4,7 @@ const initialState = {
   posts: null,
   loading: false,
   error: false,
-  toEdit: null
-
+  toEdit: null,
 };
 
 export const postsReducer = (state = initialState, action) => {
@@ -38,12 +37,19 @@ export const postsReducer = (state = initialState, action) => {
       };
 
     case types.postsSetPostToEdit:
-      const post = state.posts.filter(post => post.id === action.payload)[0] || null;
+      const post =
+        state.posts.filter((post) => post.id === action.payload)[0] || null;
       return {
         ...state,
         toEdit: post,
-      }
+      };
 
+    case types.postsDeletePost:
+      const newPosts = state.posts.filter((post) => post.id !== action.payload);
+      return {
+        ...state,
+        posts: newPosts,
+      };
 
     default:
       return state;

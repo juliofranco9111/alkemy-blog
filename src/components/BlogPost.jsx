@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setPostToEdit } from '../actions/posts';
+import { deletePostById, setPostToEdit } from '../actions/posts';
+import { deletePost } from '../helpers/fetch';
 import { users } from '../helpers/users';
 
 export const BlogPost = ({ content }) => {
@@ -12,6 +13,13 @@ export const BlogPost = ({ content }) => {
   const handleEdit = () => {
     dispatch(setPostToEdit(id));
     navigate(`/post/edit/${id}`);
+  };
+
+  const handleDelete = async () => {
+    const res = await deletePost(id);
+    if (res.status === 200) {
+      dispatch(deletePostById(id));
+    }
   };
 
   return (
@@ -26,9 +34,11 @@ export const BlogPost = ({ content }) => {
           on September 24, 2021
         </p>
         <div className='d-flex gap-2 justify-content-end mb-4'>
-          <Link to={'/'} className='btn btn-outline-danger text-uppercase'>
+          <button
+            onClick={handleDelete}
+            className='btn btn-outline-danger text-uppercase'>
             Delete
-          </Link>
+          </button>
           <button
             onClick={handleEdit}
             className='btn btn-primary text-uppercase'>

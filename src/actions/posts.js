@@ -29,3 +29,8 @@ export const setPostToEdit = (id) => ({
   payload: id,
 });
 
+export const deletePostById = (id) => ({
+  type: types.postsDeletePost,
+  payload: id,
+})
+

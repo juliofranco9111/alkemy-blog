@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const InputText = ({label='', value='', onChange = ()=>{}, placeholder=''}) => {
+export const InputText = ({label='', value='', onChange = ()=>{}, name='', placeholder=''}) => {
   return (
     <>
       <label htmlFor='inputEmail' className='mb-1 text-muted'>
@@ -9,7 +9,9 @@ export const InputText = ({label='', value='', onChange = ()=>{}, placeholder=''
       <input
         type='text'
         id='inputEmail'
-        name={value}
+        required
+        name={name}
+        autoFocus
         value={value}
         onChange={onChange}
         className='form-control'

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { editPost } from '../helpers/fetch';
 import { useForm } from '../hooks/useForm';
 import { ErrorPage } from '../pages/ErrorPage';
 import { InputText } from './InputText';
-import { Loading } from './Loading';
-import { setPostToEdit } from '../actions/posts';
 import { TextArea } from './TextArea';
 
 export const FormEditComponent = () => {
@@ -29,10 +28,14 @@ export const FormEditComponent = () => {
   });
   const { title, body } = values;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(values);
+
+    const res = await editPost(post.id);
+    if (res.status === 200) {
+      console.log('Exito');
+    }
   };
 
   const handleNavigateBack = () => {
@@ -43,8 +46,18 @@ export const FormEditComponent = () => {
     <form className='form-signin' onSubmit={handleSubmit}>
       <h1 className='h1 mb-3 font-weight-normal'>Edit a post✍</h1>
 
-      <InputText label='Title' value={title} onChange={handleInputChange} />
-      <TextArea label='Body' value={body} onChange={handleInputChange} />
+      <InputText
+        label='Title'
+        name='title'
+        value={title}
+        onChange={handleInputChange}
+      />
+      <TextArea
+        label='Body'
+        name='body'
+        value={body}
+        onChange={handleInputChange}
+      />
 
       <button className='btn btn-primary btn-block' type='submit'>
         Confirm

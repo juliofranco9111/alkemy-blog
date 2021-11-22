@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const TextArea = ({label='', onChange=()=>{}, value=''}) => {
+export const TextArea = ({label='', onChange=()=>{},name='', value=''}) => {
   return (
     <>
       <label htmlFor='inputPassword' className='sr-only text-muted mt-3 mb-1'>
@@ -9,9 +9,10 @@ export const TextArea = ({label='', onChange=()=>{}, value=''}) => {
       <textarea
         className='form-control mb-4'
         id='textarea'
+        required
         onChange={onChange}
         value={value}
-        name={value}></textarea>
+        name={name}></textarea>
     </>
   );
 };

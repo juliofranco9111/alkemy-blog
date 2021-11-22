@@ -29,3 +29,22 @@ export const fetchPost = (id) => {
     },
   }).then(res => res)
 }
+
+export const editPost = (id) => {
+  return fetch(`${URLPost}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    
+  }).then(res => res)
+}
+
+export const deletePost = (id) => {
+  return fetch(`${URLPost}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(res => res)
+}

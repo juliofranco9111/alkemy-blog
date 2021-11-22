@@ -28,7 +28,6 @@ export const DetailsPage = () => {
     return <Loading />;
   }
 
-
   return (
     <>
       <NavBar />
@@ -40,9 +39,12 @@ export const DetailsPage = () => {
               <p>{post.body}</p>
               <p>{post.body}</p>
               <hr />
-              <div className='d-flex justify-content-end mb-4'>
-                <Link to={'/'} className='btn btn-primary text-uppercase' href='#!'>
-                ← Go home 
+              <div className='d-flex gap-2 justify-content-end mb-4'>
+                <Link
+                  to={'/'}
+                  className='btn btn-primary text-uppercase'
+                  href='#!'>
+                  ← Go home
                 </Link>
               </div>
             </div>
@@ -52,3 +54,5 @@ export const DetailsPage = () => {
     </>
   );
 };
+
+

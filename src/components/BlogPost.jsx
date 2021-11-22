@@ -54,12 +54,22 @@ export const BlogPost = ({ content }) => {
         </Link>
         <p className='post-meta'>
           Posted by
-          <a href='#!'> {users[userId - 1].name} </a>
+          <strong> {users[userId - 1].name} </strong>
           on September 24, 2021
         </p>
+      <div className='d-flex gap-2 justify-content-end mb-4'>
+        <Link
+          to={'/'}
+          className='btn btn-outline-danger text-uppercase'
+          href='#!'>
+          Delete
+        </Link>
+        <Link to={'/'} className='btn btn-primary text-uppercase' href='#!'>
+          Edit
+        </Link>
+      </div>
       </div>
       <hr className='my-4' />
-      
     </>
   );
 };

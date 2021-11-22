@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { editPost } from '../helpers/fetch';
 import { useForm } from '../hooks/useForm';
 import { ErrorPage } from '../pages/ErrorPage';
 import { InputText } from './InputText';
 import { TextArea } from './TextArea';
+import { updatePostById } from '../actions/posts';
 
 export const FormEditComponent = () => {
   const navigate = useNavigate();
   const { toEdit: post, posts } = useSelector((state) => state.posts);
+  const dispatch = useDispatch();
+
+  const { userId } = post;
 
   useEffect(() => {
     if (!posts) {
@@ -32,13 +36,18 @@ export const FormEditComponent = () => {
     e.preventDefault();
     e.stopPropagation();
 
-    const res = await editPost(post.id, values);
+    const res = await editPost(post.id, { ...values, userId });
+    const postUpdated = await res.json();
+    console.log(postUpdated);
     if (res.status === 200) {
-      console.log('Exito');
+      dispatch(updatePostById(postUpdated));
+      navigate(-1);
     }
   };
 
-  const handleNavigateBack = () => {
+  const handleNavigateBack = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     navigate(-1);
   };
 

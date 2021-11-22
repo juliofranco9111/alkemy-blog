@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Loading } from '../components/Loading';
 import { NavBar } from '../components/NavBar';
@@ -40,12 +40,11 @@ export const DetailsPage = () => {
               <p>{post.body}</p>
               <hr />
               <div className='d-flex gap-2 justify-content-end mb-4'>
-                <Link
-                  to={'/'}
-                  className='btn btn-primary text-uppercase'
-                  href='#!'>
+                <button
+                  onClick={() => navigate(-1)}
+                  className='btn btn-primary text-uppercase'>
                   ← Go home
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -54,5 +53,3 @@ export const DetailsPage = () => {
     </>
   );
 };
-
-

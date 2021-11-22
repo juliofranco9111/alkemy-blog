@@ -16,6 +16,7 @@ export const types = {
   postsSetError: '[posts] Set error',
   postsClearError: '[posts] Clear error',
   postsSetPostToEdit: '[posts] Set post to edit',
-  postsDeletePost: '[posts] Delete post'
+  postsDeletePost: '[posts] Delete post',
+  postsEditPost: '[posts] Edit post'
 
 };

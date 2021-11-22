@@ -51,6 +51,20 @@ export const postsReducer = (state = initialState, action) => {
         posts: newPosts,
       };
 
+    case types.postsEditPost:
+      console.log('action.payload', action.payload);
+      const editedPosts = state.posts.map((post) => {
+        if (post.id === action.payload.id) {
+          console.log('acá lo encontré');
+          return action.payload;
+        }
+        return post;
+      });
+      return {
+        ...state,
+        posts: editedPosts,
+      };
+
     default:
       return state;
   }

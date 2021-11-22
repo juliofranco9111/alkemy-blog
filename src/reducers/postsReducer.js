@@ -4,6 +4,8 @@ const initialState = {
   posts: null,
   loading: false,
   error: false,
+  toEdit: null
+
 };
 
 export const postsReducer = (state = initialState, action) => {
@@ -34,6 +36,14 @@ export const postsReducer = (state = initialState, action) => {
         ...state,
         posts: action.payload,
       };
+
+    case types.postsSetPostToEdit:
+      const post = state.posts.filter(post => post.id === action.payload)[0] || null;
+      return {
+        ...state,
+        toEdit: post,
+      }
+
 
     default:
       return state;

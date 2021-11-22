@@ -13,8 +13,9 @@ export const types = {
   postsStartLoading: '[posts] Start loading',
   postsStopLoading: '[posts] Stop loading',
   postsSetAllPosts: '[posts] Set all posts',
-  postSetError: '[posts] Set error',
-  postClearError: '[posts] Clear error',
-  
+  postsSetError: '[posts] Set error',
+  postsClearError: '[posts] Clear error',
+  postsSetPostToEdit: '[posts] Set post to edit',
+  postsClearPostToEdit: '[posts] Clear post to edit', 
 
 };

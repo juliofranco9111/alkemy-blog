@@ -1,51 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { setPostToEdit } from '../actions/posts';
+import { users } from '../helpers/users';
 
 export const BlogPost = ({ content }) => {
-  const users = [
-    {
-      id: 1,
-      name: 'Leanne Graham',
-    },
-    {
-      id: 2,
-      name: 'Ervin Howell',
-    },
-    {
-      id: 3,
-      name: 'Clementine Bauch',
-    },
-    {
-      id: 4,
-      name: 'Patricia Lebsack',
-    },
-    {
-      id: 5,
-      name: 'Chelsey Dietrich',
-    },
-    {
-      id: 6,
-      name: 'Mrs. Dennis Schulist',
-    },
-    {
-      id: 7,
-      name: 'Kurtis Weissnat',
-    },
-    {
-      id: 8,
-      name: 'Nicholas Runolfsdottir V',
-    },
-    {
-      id: 9,
-      name: 'Glenna Reichert',
-    },
-    {
-      id: 10,
-      name: 'Clementina DuBuque',
-    },
-  ];
-
   const { title, userId, id } = content;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleEdit = () => {
+    dispatch(setPostToEdit(id));
+    navigate(`/post/edit/${id}`);
+  };
+
   return (
     <>
       <div className='post-preview'>
@@ -57,17 +25,16 @@ export const BlogPost = ({ content }) => {
           <strong> {users[userId - 1].name} </strong>
           on September 24, 2021
         </p>
-      <div className='d-flex gap-2 justify-content-end mb-4'>
-        <Link
-          to={'/'}
-          className='btn btn-outline-danger text-uppercase'
-          href='#!'>
-          Delete
-        </Link>
-        <Link to={'/'} className='btn btn-primary text-uppercase' href='#!'>
-          Edit
-        </Link>
-      </div>
+        <div className='d-flex gap-2 justify-content-end mb-4'>
+          <Link to={'/'} className='btn btn-outline-danger text-uppercase'>
+            Delete
+          </Link>
+          <button
+            onClick={handleEdit}
+            className='btn btn-primary text-uppercase'>
+            Edit
+          </button>
+        </div>
       </div>
       <hr className='my-4' />
     </>

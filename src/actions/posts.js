@@ -1,5 +1,5 @@
 import { types } from '../types/types';
-import { fetchAllPosts } from '../helpers/fetch';
+import { fetchAllPosts, fetchPost } from '../helpers/fetch';
 
 export const startLoadingPosts = () => {
   return async (dispatch) => {
@@ -16,10 +16,19 @@ const startLoading = () => ({
 });
 
 const finishLoading = () => ({
-    type: types.postsStopLoading,
+  type: types.postsStopLoading,
 });
 
 const setPosts = (posts) => ({
-    type: types.postsSetAllPosts,
-    payload: posts,
+  type: types.postsSetAllPosts,
+  payload: posts,
+});
+
+export const setPostToEdit = (id) => ({
+  type: types.postsSetPostToEdit,
+  payload: id,
+});
+
+export const clearPostToEdit = () => ({
+  type: types.postsClearPostToEdit,
 });

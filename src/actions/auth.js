@@ -36,6 +36,7 @@ export const startChecking = () => {
     };
   } else {
     return (dispatch) => {
+      dispatch(logout());
       dispatch(stopLoading());
     };
   }

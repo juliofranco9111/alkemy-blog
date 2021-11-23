@@ -12,10 +12,10 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(startChecking());
-  }, [dispatch]);
-
-
+    if (userAuth) {
+      navigate('/');
+    }
+  }, []);
 
   const [values, handleInputChange] = useForm({
     email: 'challenge@alkemy.org',
@@ -83,7 +83,6 @@ export const LoginPage = () => {
           </div>
         )}
       </form>
-        
     </div>
   );
 };

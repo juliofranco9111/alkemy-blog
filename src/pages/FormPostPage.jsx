@@ -3,13 +3,11 @@ import { useLocation } from 'react-router-dom';
 import { FormCreateComponent } from '../components/FormCreateComponent';
 import { FormEditComponent } from '../components/FormEditComponent';
 import { NavBar } from '../components/NavBar';
+import { typesNavbar } from '../types/types';
 
 export const FormPostPage = () => {
   const { pathname } = useLocation();
-  const types = {
-    edit: 'editForm',
-    create: 'createForm',
-  };
+  const types = typesNavbar;
   const [type, setType] = useState(types.create);
 
   useEffect(() => {

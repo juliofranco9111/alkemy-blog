@@ -15,7 +15,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     if (!posts) {
-      dispatch(startLoadingPosts());cob 
+      dispatch(startLoadingPosts());
     }
   }, []);
 
@@ -25,7 +25,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar/>
       <Header subtitle={subtitle} />
       <PostContainer posts={posts} />
     </>

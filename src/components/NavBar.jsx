@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { startLogout } from '../actions/auth';
 
-export const NavBar = () => {
+
+export const NavBar = ({ type }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogout = () => {
@@ -36,13 +37,13 @@ export const NavBar = () => {
               </Link>
             </li>
 
-            <li className='nav-item'>
-              <Link
-                to='/post/create'
-                className='nav-link px-lg-3 py-3 py-lg-4 text-white'>
-                New Post
-              </Link>
-            </li>
+              <li className='nav-item'>
+                <Link
+                  to='/post/create'
+                  className='nav-link px-lg-3 py-3 py-lg-4 text-white'>
+                  New Post
+                </Link>
+              </li>
             <li className='nav-item'>
               <a
                 onClick={handleLogout}

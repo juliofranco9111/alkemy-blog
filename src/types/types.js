@@ -20,3 +20,8 @@ export const types = {
   postsEditPost: '[posts] Edit post'
 
 };
+
+export const typesNavbar = {
+  edit: 'editForm',
+  create: 'createForm',
+};

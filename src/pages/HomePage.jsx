@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startLoadingPosts } from '../actions/posts';
 import { Loading } from '../components/Loading';
 
+
 export const HomePage = () => {
   const dispatch = useDispatch();
   const { posts, loading } = useSelector((state) => state.posts);
@@ -14,8 +15,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     if (!posts) {
-      dispatch(startLoadingPosts());
-      console.log('re fetch');
+      dispatch(startLoadingPosts());cob 
     }
   }, []);
 
